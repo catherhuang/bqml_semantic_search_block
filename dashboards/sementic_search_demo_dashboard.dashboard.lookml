@@ -8,7 +8,7 @@
   elements:
   - title: Trending Brands
     name: Trending Brands
-    model: bqml_genai_blocks
+    model: bqml_sementic_search_blocks
     explore: order_items
     type: looker_wordcloud
     fields: [product_semantic_search.matched_product_brand, order_items.matched_count]
@@ -69,7 +69,7 @@
     height: 5
   - title: Global Trends
     name: Global Trends
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: looker_geo_choropleth
     fields: [order_items.matched_count, users.country]
@@ -136,7 +136,7 @@
     height: 5
   - title: Attributed Revenue
     name: Attributed Revenue
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [order_items.matched_total_sale_price, sum_of_sale_price]
@@ -224,7 +224,7 @@
     height: 2
   - title: Audience Segment Size
     name: Audience Segment Size
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [users.matched_audience_size, count_of_id]
@@ -322,7 +322,7 @@
     height: 2
   - title: Next 6 Months Revenue
     name: Next 6 Months Revenue
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [order_items.matched_total_sale_price, order_items.created_month, filtered_userscount]
@@ -459,7 +459,7 @@
     height: 2
   - title: Next 6 Months Audience
     name: Next 6 Months Audience
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [order_items.matched_total_sale_price, order_items.created_month, filtered_userscount]
@@ -596,7 +596,7 @@
     height: 2
   - title: Summary
     name: Summary
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [product_semantic_search.product_description_chosen, product_semantic_search.product_matches_chosen]
@@ -667,7 +667,7 @@
     height: 2
   - title: Forecast by Traffic Source
     name: Forecast by Traffic Source
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: looker_column
     fields: [order_items.created_month, users.count, users.traffic_source]
@@ -792,7 +792,7 @@
     height: 6
   - title: Traffic Source Summary
     name: Traffic Source Summary
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [users.count, users.traffic_source, order_items.average_sale_price]
@@ -931,7 +931,7 @@
     height: 2
   - title: Audience Age Breakdown (Size vs Revenue)
     name: Audience Age Breakdown (Size vs Revenue)
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: looker_area
     fields: [users.age_tier, users.matched_audience_size, order_items.matched_total_sale_price]
@@ -1018,7 +1018,7 @@
     height: 6
   - title: User Summary
     name: User Summary
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [users.age_tier, users.matched_audience_size, order_items.matched_total_sale_price]
@@ -1114,7 +1114,7 @@
     height: 2
   - title: Heatmap
     name: Heatmap
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: looker_geo_coordinates
     fields: [users.count, users.zip_code]
@@ -1290,7 +1290,7 @@
     height: 8
   - title: ExploreBrands
     name: ExploreBrands
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [product_semantic_search.explore_brands_button, product_semantic_search.explore_products_button,
@@ -1332,7 +1332,7 @@
     height: 6
   - title: ExploreProducts
     name: ExploreProducts
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [product_semantic_search.explore_brands_button, product_semantic_search.explore_products_button,
@@ -1365,7 +1365,7 @@
     height: 1
   - title: ExploreUsers
     name: ExploreUsers
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [product_semantic_search.explore_brands_button, product_semantic_search.explore_products_button,
@@ -1398,7 +1398,7 @@
     height: 1
   - title: Next 6 Months Audience (Copy)
     name: Next 6 Months Audience (Copy)
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: looker_area
     fields: [order_items.matched_total_sale_price, order_items.created_month, filtered_userscount]
@@ -1535,7 +1535,7 @@
     height: 4
   - title: Next 6 Months Revenue (Copy)
     name: Next 6 Months Revenue (Copy)
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: looker_area
     fields: [order_items.matched_total_sale_price, order_items.created_month, filtered_userscount]
@@ -1675,7 +1675,7 @@
     height: 4
   - title: Average Price
     name: Average Price
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: single_value
     fields: [users.count, users.traffic_source, order_items.average_sale_price]
@@ -1824,7 +1824,7 @@
       type: advanced
       display: popover
       options: []
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     listens_to_filters: []
     field: product_semantic_search.product_description
@@ -1838,7 +1838,7 @@
       type: advanced
       display: popover
       options: []
-    model: bqml_genai_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     listens_to_filters: []
     field: product_semantic_search.product_matches
