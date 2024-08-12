@@ -1,4 +1,4 @@
-connection: "@{LOOKER_BIGQUERY_CONNECTION_NAME}"
+connection: "sample_bigquery_connection"
 
 include: "/views/*.view.lkml"                # include all views in the views/ folder in this project
 # include: "/**/*.view.lkml"                 # include all views in this project
@@ -32,6 +32,7 @@ explore: product_semantic_search {
   }
 
   join: order_items_customer {
+    relationship: many_to_one
     from: order_items
     sql: RIGHT JOIN ${order_items.SQL_TABLE_NAME} AS order_items_customer ON ${order_items_customer.id} = ${order_items.id} AND ${order_items.user_id} =  ${order_items_customer.user_id};;
   }
