@@ -1,4 +1,4 @@
-connection: "sample_bigquery_connection"
+connection: "cat_bq_connection"
 
 include: "/views/*.view.lkml"
 include: "/dashboards/*"
