@@ -8,7 +8,6 @@ include: "/dashboards/*"
 
 # # Select the views that should be a part of this model,
 # # and define the joins that connect them together.
-
 datagroup: ecomm_daily {
   sql_trigger: SELECT MAX(DATE(created_time)) FROM `bigquery-public-data.thelook_ecommerce.order_items` ;;
   max_cache_age: "32 hours"
