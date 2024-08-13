@@ -110,6 +110,13 @@ view: order_items {
     sql: ${TABLE}.shipped_at ;;
   }
 
+  dimension: invoice {
+    link: {
+      label: "link to invoice"
+      url: "https://docs.google.com/spreadsheets/d/1zvfSARbPadGM0pOMew4dFo40djv46S3InY-nQjec-V4/edit?gid=790763898#gid=790763898"
+    }
+  }
+
   dimension: user_id {
     type: number
     # hidden: yes
@@ -124,17 +131,19 @@ view: order_items {
     type: count_distinct
     filters: [matched_product: "yes"]
     sql: ${TABLE}.id ;;
+    drill_fields: [detail*]
   }
 
   # ----- Sets of fields for drilling ------
   set: detail {
-    fields: [
-  id,
-  users.last_name,
-  users.id,
-  users.first_name,
-  products.name,
-  products.id
+    fields: [id,
+            users.name,
+            users.id,
+            users.email,
+            products.name,
+            products.brand,
+            products.id,
+            sale_price,
   ]
   }
 

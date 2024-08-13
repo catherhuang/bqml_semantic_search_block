@@ -51,6 +51,40 @@ view: users {
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;
+    tags: ["email"]
+
+    link: {
+      label: "User Lookup Dashboard"
+      url: "/dashboards/MDDG8M9Lvb1S2zq5UuhUND?Email={{ value | encode_uri }}"
+      icon_url: "https://cdn.icon-icons.com/icons2/2248/PNG/512/monitor_dashboard_icon_136391.png"
+    }
+    action: {
+      label: "Email Promotion to Customer"
+      url: "https://desolate-refuge-53336.herokuapp.com/posts"
+      icon_url: "https://sendgrid.com/favicon.ico"
+      param: {
+        name: "some_auth_code"
+        value: "abc123456"
+      }
+      form_param: {
+        name: "Subject"
+        required: yes
+        default: "Thank you {{ users.name._value }}"
+      }
+      form_param: {
+        name: "Body"
+        type: textarea
+        required: yes
+        default:
+        "Dear {{ users.first_name._value }},
+
+        Thanks for your loyalty to the Look.  We'd like to offer you a 10% discount
+        on your next purchase!  Just use the code LOYAL when checking out!
+
+        Your friends at the Look"
+      }
+    }
+    required_fields: [name, first_name]
   }
 
   dimension: first_name {
@@ -68,9 +102,31 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
 
+  dimension: name {
+    type: string
+    sql: concat(${first_name}, ' ', ${last_name}) ;;
+  }
+
   dimension: latitude {
     type: number
     sql: ${TABLE}.latitude ;;
+  }
+
+  dimension: user_image {
+    label: "User Image"
+    sql: ${image_file} ;;
+    html: <img src="{{ value }}" width="220" height="220"/>;;
+  }
+
+  dimension: image_file {
+    label: "Image File"
+    hidden: yes
+    sql: concat('https://docs.looker.com/assets/images/',${gender_short},'.jpg') ;;
+  }
+
+  dimension: gender_short {
+    label: "Gender Short"
+    sql: LOWER(SUBSTR(${gender},1,1)) ;;
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
