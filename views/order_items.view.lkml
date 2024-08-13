@@ -12,6 +12,11 @@ view: order_items {
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
+    link: {
+      label: "link to invoice"
+      url: "https://docs.google.com/spreadsheets/d/1zvfSARbPadGM0pOMew4dFo40djv46S3InY-nQjec-V4/edit?gid=790763898#gid=790763898"
+
+    }
   }
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
