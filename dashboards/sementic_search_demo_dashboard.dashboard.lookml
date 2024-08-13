@@ -8,7 +8,7 @@
   elements:
   - title: Trending Brands
     name: Trending Brands
-    model: bqml_sementic_search_blocks
+    model: bqml_semantic_search_block
     explore: order_items
     type: looker_wordcloud
     fields: [product_semantic_search.matched_product_brand, order_items.matched_count]
